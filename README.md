@@ -27,7 +27,7 @@ git clone https://github.com/boostvolt/tesla_autopilot [tesla]/tesla_autopilot/
 start tesla_autopilot
 ```
 
-# Configuration
+## Configuration
 client.lua
 
 ```
