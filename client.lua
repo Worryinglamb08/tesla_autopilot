@@ -28,19 +28,21 @@ AddEventHandler("autopilot:start", function(source)
   local model = GetEntityModel(vehicle)
   local displaytext = GetDisplayNameFromVehicleModel(model)
   local blip = GetFirstBlipInfoId(8)
-  if (blip ~= nil and blip ~= 0) then
+  if IsPedInAnyEVVehicle(ped) then
+    if (blip ~= nil and blip ~= 0) then
       local coord = GetBlipCoords(blip)
       blipX = coord.x
       blipY = coord.y
       blipZ = coord.z
       TaskVehicleDriveToCoordLongrange(player, vehicle, blipX, blipY, blipZ, speed, 447, 2.0)
       autopilotActive = true
-  else
+    else
       ShowNotification("Give me route first")
+    end
+  else
+    ShowNotification("The autopliot function is only available for Tesla vehicles.")
   end
 end)
-
-
 
 function ShowNotification(text)
 	SetNotificationTextEntry("STRING")
